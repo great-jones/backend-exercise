@@ -3,6 +3,11 @@ We want to create a system for creating comments and parsing @mentions
 A comment includes text and the author (user)
 A mention joins a user to a comment
 
+Start with basic @mentions where all we need is an email to go out
+
+If that gets implemented, discuss how the FE needed to know which attempted mentions actually resulted in a notification
+
+
 1. create a comment model 
 2. create a mention model
 3. create a gql schema for user
