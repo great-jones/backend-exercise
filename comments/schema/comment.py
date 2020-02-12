@@ -3,20 +3,15 @@ from graphene import Connection, Int
 from graphene_django import DjangoObjectType
 
 from comments.models import Comment
+from comments.schema.user import UserType
 
 
 class CommentType(DjangoObjectType):
     class Meta:
         model = Comment
-        fields = ('text', 'author', 'id')
+        fields = ('text', 'id')
 
-    # graphene fields here
-    text = None
-    author = None
-    mentions = None
-
-    def resolve_mentions(root, info):
-        return []
+    text = graphene.NonNull(graphene.String)
 
 class CreateCommentInput(graphene.InputObjectType):
     text = graphene.String(required=True)
@@ -33,11 +28,15 @@ class CreateComment(graphene.Mutation):
     Output = CreateCommentResponse
 
     def mutate(self, info, input):
-        """
-        - extract from the input.text a list of all users who were @mentioned
-        - for each @mention, create and insert a Mention (which just joins Comment to User) into DB
-        - return a CreateCommentResponse with the comment
-        """
+        comment = Comment.objects.create(text=input.text)
+        return CreateCommentResponse(comment=comment)
 
 class Mutation(graphene.ObjectType):
     create_comment = CreateComment.Field()
+
+class Query(object):
+
+    comment = graphene.Field(
+        CommentType,
+        id=graphene.NonNull(graphene.Int),
+    )

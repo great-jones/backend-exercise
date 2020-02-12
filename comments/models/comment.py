@@ -1,6 +1,9 @@
+from django.contrib.auth.models import User
 from django.db import models
 
 # Create model here
+from django.db.models import ForeignKey, deletion
+
 """
 Comment Model
  foreign key to user 
@@ -8,4 +11,4 @@ Comment Model
 """
 
 class Comment(models.Model):
-    pass
+    text = models.TextField()

@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'comments',
+    'graphene_django',
     'graphiql_debug_toolbar',
 ]
 
