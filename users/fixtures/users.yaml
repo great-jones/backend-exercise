@@ -1,0 +1,14 @@
+- model: auth.user
+  pk: 1
+  fields:
+    username: bob
+    first_name: Bobby
+    last_name: Axelrod
+    email: bobby@gmail.com
+- model: auth.user
+  pk: 2
+  fields:
+    username: emily
+    first_name: Emily
+    last_name: Blunt
+    email: emily@gmail.com

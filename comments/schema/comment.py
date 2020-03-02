@@ -28,6 +28,9 @@ class CreateComment(graphene.Mutation):
     Output = CreateCommentResponse
 
     def mutate(self, info, input):
+        # parse mentions and send an email to the user
+        for comment in Comment.objects.all():
+            print(f'this is a comment from the DB: {comment}')
         comment = Comment.objects.create(text=input.text)
         return CreateCommentResponse(comment=comment)
 

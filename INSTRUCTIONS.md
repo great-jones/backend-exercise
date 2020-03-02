@@ -1,19 +1,41 @@
-We want to create a system for creating comments and parsing @mentions
+# Setup
 
-A comment includes text and the author (user)
-A mention joins a user to a comment
+1. Install pipenv if not already installed. 
 
-Start with basic @mentions where all we need is an email to go out
+`brew install pipenv`
 
-If that gets implemented, discuss how the FE needed to know which attempted mentions actually resulted in a notification
+2. Install project dependencies
+
+`pipenv install`
+
+3. Create database tables 
+
+`pipenv run ./manage.py migrate`
+
+4. Load some dummy users into the DB
+
+`pipenv run ./manage.py loaddata users`
+
+5. Open `http://127.0.0.1:8000/graphql/` in browser to make sure everything is working
+
+try creating a comment with 
+
+```
+mutation CreateComment($commentText: String!) {
+  createComment(input: {text: $commentText}) {
+    comment {
+      text
+    }
+  }
+}
+
+variables: {"commentText": "hey @bob do we have an estimate yet?"}
+
+```
+
+6. Open `comments/schema/comment.py` to begin the exercise 
 
 
-1. create a comment model 
-2. create a mention model
-3. create a gql schema for user
-4. create a gql schema for comment, include a mentions field
-5. write a resolver for getting all mentions
-6. create mutation for creating a comment
-7. extract from the input.text a list of all users who were @mentioned 
-8. for each @mention, create and insert a Mention (which just joins Comment to User) into DB
-9. return a CreateCommentResponse with the comment
+
+
+

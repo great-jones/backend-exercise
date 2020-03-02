@@ -11,7 +11,6 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
-from dotenv import load_dotenv
 
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -29,7 +28,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-load_dotenv(verbose=True, dotenv_path='.env', override=True)
 
 GRAPHENE = {
     'SCHEMA': 'comments.schema.schema'
@@ -46,6 +44,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'comments',
+    'users',
     'graphene_django',
     'graphiql_debug_toolbar',
 ]
@@ -87,13 +86,9 @@ WSGI_APPLICATION = 'interview.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'levinotik',
-        'USER': 'greatcontrol_dev',
-        'PASSWORD': os.getenv('DB_PASSWORD'),
-        'HOST': 'localhost',
-        'PORT': 5432
-    },
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    }
 }
 
 

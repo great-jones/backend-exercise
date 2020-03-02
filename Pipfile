@@ -6,12 +6,11 @@ verify_ssl = true
 [dev-packages]
 
 [packages]
-django = "*"
-graphene = "*"
-psycopg2-binary = "*"
-graphene-django = "*"
+django = "==2.2.10"
+graphene-django = "==2.8.1"
 python-dotenv = "*"
 django-graphiql-debug-toolbar = "*"
+pyyaml = "*"
 
 [requires]
 python_version = "3.7"
