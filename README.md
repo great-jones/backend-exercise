@@ -18,7 +18,11 @@
 
 This creates users with usernames `bob` and `emily`
 
-5. Open `http://127.0.0.1:8000/graphql/` in browser to make sure everything is working
+5. Run the server
+
+`pipenv run ./manage.py runserver`
+
+6. Open `http://127.0.0.1:8000/graphql/` in browser to make sure everything is working
 
 try creating a comment with 
 
