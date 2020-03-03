@@ -39,7 +39,7 @@ variables: {"commentText": "hey @bob do we have an estimate yet?"}
 
 ```
 
-6. Open `comments/schema/comment.py` to begin the exercise 
+7. Open `comments/schema/comment.py` to begin the exercise 
 
 
 
