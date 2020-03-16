@@ -2,44 +2,56 @@
 
 1. Install pipenv if not already installed. 
 
-`brew install pipenv`
+	`brew install pipenv`
 
-2. Install project dependencies
+2. Install pyeven if not already installed
 
-`pipenv install`
+	`brew install pyenv`
 
-3. Create database tables 
+3. Install Python 3.7.7 using Pyenv
 
-`pipenv run ./manage.py migrate`
+	`pyenv install 3.7.7`
 
-4. Load some dummy users into the DB
+	Tell Pyenv to use 3.7.7 for this project 
 
-`pipenv run ./manage.py loaddata users`
+	`pyenv local 3.7.7`
 
-This creates users with usernames `bob` and `emily`
+4. Install project dependencies
 
-5. Run the server
+	`pipenv install`
 
-`pipenv run ./manage.py runserver`
+5. Create database tables 
 
-6. Open `http://127.0.0.1:8000/graphql/` in browser to make sure everything is working
+	`pipenv run ./manage.py migrate`
 
-try creating a comment with 
+6. Load some dummy users into the DB
 
-```
-mutation CreateComment($commentText: String!) {
-  createComment(input: {text: $commentText}) {
-    comment {
-      text
-    }
-  }
-}
+	`pipenv run ./manage.py loaddata users`
 
-variables: {"commentText": "hey @bob do we have an estimate yet?"}
+	This creates users with usernames `bob` and `emily`
 
-```
+7. Run the server
 
-7. Open `comments/schema/comment.py` to begin the exercise 
+	`pipenv run ./manage.py runserver`
+
+8. Open `http://127.0.0.1:8000/graphql/` in browser to make sure everything is working
+
+	try creating a comment with 
+	
+	```
+	mutation CreateComment($commentText: String!) {
+	  createComment(input: {text: $commentText}) {
+	    comment {
+	      text
+	    }
+	  }
+	}
+	
+	variables: {"commentText": "hey @bob do we have an estimate yet?"}
+	
+	```
+
+9. Open `comments/schema/comment.py` to begin the exercise 
 
 
 
