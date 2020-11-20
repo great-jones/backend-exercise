@@ -4,7 +4,7 @@
 
 	`brew install pipenv`
 
-2. Install pyeven if not already installed
+2. Install pyenv if not already installed
 
 	`brew install pyenv`
 
