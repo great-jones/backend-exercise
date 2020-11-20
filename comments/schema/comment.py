@@ -28,7 +28,16 @@ class CreateComment(graphene.Mutation):
     Output = CreateCommentResponse
 
     def mutate(self, info, input):
-        # parse mentions and send an email to the user
+        '''
+        Goal #1 is to parse @mentions in the comment text and send a notification email to the mentioned user.
+        For the email, you can use email_service.send_email(email_address, comment_id). You do not need to implement
+        the actual email sending functionality.
+
+        Goal #2 now that we are able to send notifications for mentions, we need to enable the frontend to know about the
+        mentions that exist in each comment. To do this, you'll need to create a Django model for a join table that joins
+        users to comments. Create the Django model and then the corresponding GraphQL type.
+        Once the Mention type is created, add a field for list of mentions to the Comment schema and add a resolver for it.
+        '''
         for comment in Comment.objects.all():
             print(f'this is a comment from the DB: {comment}')
         comment = Comment.objects.create(text=input.text)
