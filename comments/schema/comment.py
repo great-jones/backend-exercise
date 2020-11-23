@@ -33,6 +33,8 @@ class CreateComment(graphene.Mutation):
         For the email, you can use email_service.send_email(email_address, comment_id). You do not need to implement
         the actual email sending functionality.
 
+        Note that usernames contain any characters a-z (uppercase or lowercase), digits as well as "." (periods)
+
         Goal #2 now that we are able to send notifications for mentions, we need to enable the frontend to know about the
         mentions that exist in each comment. To do this, you'll need to create a Django model for a join table that joins
         users to comments. Create the Django model and then the corresponding GraphQL type.

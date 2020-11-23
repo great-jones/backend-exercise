@@ -8,13 +8,13 @@
 
 	`brew install pyenv`
 
-3. Install Python 3.7.7 using Pyenv
+3. Install Python 3.8.0 using Pyenv
 
-	`pyenv install 3.7.7`
+	`pyenv install 3.8.0`
 
-	Tell Pyenv to use 3.7.7 for this project 
+	Tell Pyenv to use 3.8.0 for this project 
 
-	`pyenv local 3.7.7`
+	`pyenv local 3.8.0`
 
 4. Install project dependencies
 
