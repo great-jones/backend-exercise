@@ -54,3 +54,7 @@ class Query(object):
         CommentType,
         id=graphene.NonNull(graphene.Int),
     )
+
+    def resolve_comment(self, info, **kwargs):
+        comment_id = kwargs.get('id')
+        return Comment.objects.get(id=comment_id)
